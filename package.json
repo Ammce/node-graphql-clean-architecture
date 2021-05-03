@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Ammce/node-graphql-clean-architecture/issues"
   },
-  "homepage": "https://github.com/Ammce/node-graphql-clean-architecture#readme"
+  "homepage": "https://github.com/Ammce/node-graphql-clean-architecture#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0"
+  },
+  "dependencies": {
+    "typescript": "^4.2.4"
+  }
 }
