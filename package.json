@@ -1,0 +1,19 @@
+{
+  "name": "graphql-clean-architecture",
+  "version": "1.0.0",
+  "description": "Nodejs with Graphql and Typescript - Clean Architecture ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ammce/node-graphql-clean-architecture.git"
+  },
+  "author": "Amel Muminovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ammce/node-graphql-clean-architecture/issues"
+  },
+  "homepage": "https://github.com/Ammce/node-graphql-clean-architecture#readme"
+}
