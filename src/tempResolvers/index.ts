@@ -4,8 +4,9 @@ import { Request } from "express";
 export const resolvers: IResolvers = {
   Query: {
     me: (_, __, { req }: { req: Request }) => {
+      console.log("Hitting");
       return {
-        name: "Amel",
+        email: "Amel",
       };
     },
   },
