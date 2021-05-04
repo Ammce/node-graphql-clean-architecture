@@ -2,7 +2,6 @@ import express, { Application, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 
 import { ApolloServer } from "apollo-server-express";
-import { typeDefs } from "../tempGQLTypes/index";
 import mergedTypeDefs from "./typedefs";
 import { resolvers } from "../tempResolvers/index";
 
