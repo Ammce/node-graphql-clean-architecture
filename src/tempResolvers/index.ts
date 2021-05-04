@@ -16,7 +16,6 @@ export const resolvers: IResolvers = {
       { email, password }: { email: string; password: string }
     ) => {
       console.log(email, password);
-
       return true;
     },
   },
