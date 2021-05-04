@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs } from "../tempGQLTypes/index";
+import mergedTypeDefs from "./typedefs";
 import { resolvers } from "../tempResolvers/index";
 
 export default (app: Application) => {
@@ -11,7 +12,7 @@ export default (app: Application) => {
 
   // GraphQL Routes
   const server = new ApolloServer({
-    typeDefs,
+    typeDefs: mergedTypeDefs,
     resolvers,
     context: ({ req, res }) => ({ req, res, db: "mongoDB" }),
   });

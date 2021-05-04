@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const applicantTypes = gql`
+export const productTypes = gql`
   type Product {
     id: ID!
     description: String
