@@ -1,5 +1,4 @@
-import { IResolvers, mergeSchemas } from "graphql-tools";
-import { Request } from "express";
+import { IResolvers } from "graphql-tools";
 
 export const resolvers: IResolvers = {
   Query: {
