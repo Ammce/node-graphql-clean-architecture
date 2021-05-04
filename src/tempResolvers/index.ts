@@ -1,21 +1,19 @@
-import { IResolvers } from "graphql-tools";
+import { IResolvers, mergeSchemas } from "graphql-tools";
 import { Request } from "express";
 
 export const resolvers: IResolvers = {
   Query: {
-    me: (_, __, { req }: { req: Request }) => {
-      console.log("Hitting");
+    me: (parent, args, context, info) => {
+      console.log("Hitting", args);
       return {
         email: "Amel",
       };
     },
   },
   Mutation: {
-    register: async (
-      _,
-      { email, password }: { email: string; password: string }
-    ) => {
-      console.log(email, password);
+    register: async (parent, args, context, info) => {
+      console.log(context.db);
+      console.log(info);
       return true;
     },
   },

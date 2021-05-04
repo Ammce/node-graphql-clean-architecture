@@ -13,7 +13,7 @@ export default (app: Application) => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: ({ req, res }) => ({ req, res }),
+    context: ({ req, res }) => ({ req, res, db: "mongoDB" }),
   });
   server.applyMiddleware({ app: app, path: "/graphql" });
 
