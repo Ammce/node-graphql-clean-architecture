@@ -1,24 +1,24 @@
 import express from "express";
-import http from "http";
+import { ApolloServer } from "apollo-server-express";
+import { typeDefs } from "./tempGQLTypes/index";
+import { resolvers } from "./tempResolvers/index";
 
 import registerMiddleware from "./middleware";
 
-const app = express();
-
-const startServer = async (): Promise<string> => {
-  const server = http.createServer(app);
-  registerMiddleware(app);
-  await server.listen(3000);
-  return `Started on port ${3000}`;
-};
-
-startServer()
-  .then((res) => {
-    console.info("\x1b[36m", res);
-  })
-  .catch((err) => {
-    // logger.captureException(err);
-    console.error(err);
+const startServer = async () => {
+  const server = new ApolloServer({
+    // These will be defined for both new or existing servers
+    typeDefs,
+    resolvers,
+    context: ({ req, res }) => ({ req, res }),
   });
 
-export default app;
+  const app = express();
+  registerMiddleware(app);
+  server.applyMiddleware({ app: app, path: "/graphql" });
+  app.listen(3000, () => {
+    console.log(`Server is up and running on port 3000`);
+  });
+};
+
+startServer();
