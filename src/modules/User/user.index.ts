@@ -1,4 +1,6 @@
 import { IResolvers } from "graphql-tools";
+import authService from "../../utils/isAuth";
+import { controllers } from "./user.controller";
 
 export const resolvers: IResolvers = {
   Query: {
@@ -13,10 +15,12 @@ export const resolvers: IResolvers = {
     },
     user: (parent, args, context, info) => {
       console.log("Hitting", args);
-      return {
-        name: "Amel",
-        age: 26,
-      };
+      return authService.isAuth({
+        resolve: controllers.user,
+        args,
+        context,
+        children: [],
+      });
     },
   },
   Mutation: {
