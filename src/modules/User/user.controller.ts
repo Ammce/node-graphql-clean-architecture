@@ -1,6 +1,12 @@
+import { GetUser } from "./use-cases";
+
 export const controllers = {
   user: async (args: any, context: any): Promise<any> => {
-    console.log("OVDE SAM");
-    return { name: "Amel", age: 26 };
+    // Todo here the userId will come from the authenticated user which will be added to context after authentication
+    const getUser = new GetUser({
+      userGateway: context.db.userDB,
+      userId: 123,
+    });
+    return await getUser.getUserById();
   },
 };

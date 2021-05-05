@@ -3,7 +3,13 @@ import { UserGateway } from "../../../db/gateways";
 class GetUser {
   userGateway: UserGateway;
   userId: string | number;
-  constructor(userGateway: UserGateway, userId: string | number) {
+  constructor({
+    userGateway,
+    userId,
+  }: {
+    userGateway: UserGateway;
+    userId: string | number;
+  }) {
     this.userGateway = userGateway;
     this.userId = userId;
   }
