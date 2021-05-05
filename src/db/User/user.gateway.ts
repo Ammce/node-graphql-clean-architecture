@@ -10,3 +10,5 @@ class UserGateway {
     };
   }
 }
+
+export default UserGateway;
