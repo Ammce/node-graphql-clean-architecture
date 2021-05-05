@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { ApolloServer } from "apollo-server-express";
 import mergedTypeDefs from "./typedefs";
 import resolvers from "./resolvers";
+import setupContext from "./context";
 
 export default (app: Application) => {
   app.use(express.json());
@@ -13,7 +14,7 @@ export default (app: Application) => {
   const server = new ApolloServer({
     typeDefs: mergedTypeDefs,
     resolvers,
-    context: ({ req, res }) => ({ req, res, db: "mongoDB" }),
+    context: ({ req, res }) => setupContext(req, res),
   });
   server.applyMiddleware({ app: app, path: "/graphql" });
 
