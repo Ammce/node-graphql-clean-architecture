@@ -3,7 +3,6 @@ import cookieParser from "cookie-parser";
 
 import { ApolloServer } from "apollo-server-express";
 import mergedTypeDefs from "./typedefs";
-// import { resolvers } from "../tempResolvers/index";
 import resolvers from "./resolvers";
 
 export default (app: Application) => {

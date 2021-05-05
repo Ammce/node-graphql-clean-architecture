@@ -12,6 +12,7 @@ class IsAuth {
     children?: any;
   }) {
     try {
+      // Todo is logged in, if so push the data
       return resolve(args, context);
     } catch (error) {
       console.log("Error in resolving");
