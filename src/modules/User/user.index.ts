@@ -14,7 +14,6 @@ export const resolvers: IResolvers = {
       ];
     },
     user: (parent, args, context, info) => {
-      console.log("Hitting", args);
       return authService.isAuth({
         resolve: controllers.user,
         args,
