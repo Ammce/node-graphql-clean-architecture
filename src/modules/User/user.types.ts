@@ -9,8 +9,8 @@ export const userTypes = `
   }
 
   type Query {
-    Users: [User]
-    User(id: ID!): User
+    users: [User]
+    user(id: ID!): User
   }
 
   type Mutation {
