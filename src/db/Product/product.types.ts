@@ -1,6 +1,7 @@
+import { User } from '../User/user.types';
 export type Product = {
   id: string;
-  name: string;
-  age: number;
-  products: [];
+  description: string;
+  price: number;
+  user: User | string;
 };
