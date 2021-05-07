@@ -1,3 +1,4 @@
-import GetUser from "./getUser";
+import AddUser from './addUser';
+import GetUser from './getUser';
 
-export { GetUser };
+export { GetUser, AddUser };

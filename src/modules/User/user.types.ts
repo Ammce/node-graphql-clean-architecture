@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 export const userTypes = `
   type User {
@@ -14,6 +14,11 @@ export const userTypes = `
   }
 
   type Mutation {
-    addUser(name: String!, age: Int!): User
+    addUser(input: addUserInput): User
+  }
+  
+  input addUserInput {
+    name: String! 
+    age: Int!
   }
 `;

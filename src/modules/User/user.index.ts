@@ -1,14 +1,13 @@
-import { IResolvers } from "graphql-tools";
-import authService from "../../utils/isAuth";
-import { controllers } from "./user.controller";
+import { IResolvers } from 'graphql-tools';
+import authService from '../../utils/isAuth';
+import { controllers } from './user.controller';
 
 export const resolvers: IResolvers = {
   Query: {
     users: (parent, args, context, info) => {
-      console.log("Hitting", args);
       return [
         {
-          name: "Amel",
+          name: 'Amel',
           age: 25,
         },
       ];
@@ -24,12 +23,12 @@ export const resolvers: IResolvers = {
   },
   Mutation: {
     addUser: async (parent, args, context, info) => {
-      console.log(context.db);
-      console.log(info);
-      return {
-        name: "Amel",
-        age: 26,
-      };
+      return authService.isAuth({
+        resolve: controllers.addUser,
+        args,
+        context,
+        children: [],
+      });
     },
   },
 };
