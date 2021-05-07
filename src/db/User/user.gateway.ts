@@ -3,11 +3,14 @@
 import { userMock } from './user.mock';
 import { User } from './user.types';
 
-// export interface IUserGateway {
-//   getUser
-// }
+export interface IUserGateway {
+  getUserById(id: string | number): Promise<User>;
+  getAllUsers(): Promise<User[]>;
+  updateUser(id: string, data: any): Promise<User>;
+  deleteUser(id: string): Promise<boolean>;
+}
 
-class UserGateway {
+class UserGateway implements IUserGateway {
   constructor() {}
   async getUserById(id: string | number): Promise<User> {
     // Todo Map the data before returning
