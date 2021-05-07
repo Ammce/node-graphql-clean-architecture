@@ -1,50 +1,37 @@
 // Todo Implement Real database
 
+import { userMock } from './user.mock';
+import { User } from './user.types';
+
 // export interface IUserGateway {
 //   getUser
 // }
 
 class UserGateway {
   constructor() {}
-  async getUserById(id: string | number) {
+  async getUserById(id: string | number): Promise<User> {
     // Todo Map the data before returning
-    return {
-      name: 'Amel',
-      age: 26,
-    };
+    return userMock;
   }
 
-  async getAllUsers() {
+  async getAllUsers(): Promise<User[]> {
     // Todo Map the data before returning
-    return [
-      {
-        name: 'Amel',
-        age: 26,
-      },
-    ];
+    return [userMock];
   }
 
-  async addUser(data: any) {
+  async addUser(data: any): Promise<User> {
     // Todo Map the data before returning and add data type
-    return {
-      name: 'Added User Amel',
-      age: 26,
-    };
+    return userMock;
   }
 
-  async updateUser(id: string, data: any) {
+  async updateUser(id: string, data: any): Promise<User> {
     // Todo Map the data before returning and add data type
-    return {
-      name: 'Added User Amel',
-      age: 26,
-    };
+    return userMock;
   }
 
-  async deleteUser(id: string) {
+  async deleteUser(id: string): Promise<boolean> {
     // Todo Map the data before returning and add data type
-    return {
-      success: true,
-    };
+    return true;
   }
 }
 
