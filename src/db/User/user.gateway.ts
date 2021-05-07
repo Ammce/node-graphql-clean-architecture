@@ -35,6 +35,13 @@ class UserGateway {
       age: 26,
     };
   }
+
+  async deleteUser(id: string) {
+    // Todo Map the data before returning and add data type
+    return {
+      success: true,
+    };
+  }
 }
 
 export default UserGateway;
