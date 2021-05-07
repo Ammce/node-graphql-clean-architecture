@@ -1,4 +1,5 @@
 import { UserGateway } from '../../../db/gateways';
+import { User } from '../../../db/User/user.types';
 
 class AddUser {
   userGateway: UserGateway;
@@ -15,7 +16,7 @@ class AddUser {
   }
 
   // Todo add return types of unique User type
-  async addUser() {
+  async addUser(): Promise<User> {
     return await this.userGateway.addUser(this.input);
   }
 }
