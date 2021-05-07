@@ -1,5 +1,9 @@
 // Todo Implement Real database
 
+// export interface IUserGateway {
+//   getUser
+// }
+
 class UserGateway {
   constructor() {}
   async getUserById(id: string | number) {
