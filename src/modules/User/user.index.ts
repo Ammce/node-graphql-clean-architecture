@@ -1,10 +1,11 @@
 import { IResolvers } from 'graphql-tools';
+import { GQLArgs, GQLContext } from '../../types';
 import authService from '../../utils/isAuth';
 import { controllers } from './user.controller';
 
 export const resolvers: IResolvers = {
   Query: {
-    users: (parent, args, context, info) => {
+    users: (parent: any, args: GQLArgs, context: GQLContext, info: any) => {
       return [
         {
           name: 'Amel',
@@ -12,7 +13,7 @@ export const resolvers: IResolvers = {
         },
       ];
     },
-    user: (parent, args, context, info) => {
+    user: (parent: any, args: GQLArgs, context: GQLContext, info: any) => {
       return authService.isAuth({
         resolve: controllers.user,
         args,
@@ -22,7 +23,12 @@ export const resolvers: IResolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args, context, info) => {
+    addUser: async (
+      parent: any,
+      args: GQLArgs,
+      context: GQLContext,
+      info: any,
+    ) => {
       return authService.isAuth({
         resolve: controllers.addUser,
         args,
