@@ -1,9 +1,9 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
-export const userTypes = `
+export const userTypes = gql`
   type User {
     id: ID!
-    name: String
+    name: String @deprecated(reason: "Use \`newField\`.")
     age: Int
     products: [Product]
   }
@@ -16,9 +16,9 @@ export const userTypes = `
   type Mutation {
     addUser(input: addUserInput): User
   }
-  
+
   input addUserInput {
-    name: String! 
+    name: String!
     age: Int!
   }
 `;
