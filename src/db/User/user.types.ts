@@ -8,3 +8,7 @@ export type User = {
   password: string;
   products: Product[] | string[];
 };
+
+export type UserWithToken = User & {
+  token: string;
+};

@@ -18,12 +18,30 @@ class Login {
   }
 
   // Todo add return types of unique User type
-  async login(): Promise<string> {
+  async login(): Promise<User> {
     const { password, email } = this.input;
-    throw new GraphQLError("User not found izbrfisi semeemee");
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await this.userGateway.getUserById("1234");
-    return "";
+    const user = await this.validateEmail(email);
+    this.validatePassword(password, user.password);
+    return user;
+  }
+
+  private async validateEmail(email: string): Promise<User> {
+    const user = await this.userGateway.getUserByEmail(email);
+    if (!user) {
+      throw new GraphQLError("User doesn't exist.");
+    }
+    return user;
+  }
+
+  private validatePassword(
+    loginPassword: string,
+    userPassword: string,
+  ): boolean {
+    const correctPassword = bcrypt.compareSync(loginPassword, userPassword);
+    if (!correctPassword) {
+      throw new GraphQLError("Wrong credentials.");
+    }
+    return true;
   }
 }
 
