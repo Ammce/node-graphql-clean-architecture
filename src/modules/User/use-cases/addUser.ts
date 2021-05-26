@@ -18,9 +18,6 @@ class AddUser {
 
   // Todo add return types of unique User type
   async addUser(): Promise<User> {
-    const { password, email } = this.input;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(hashedPassword);
     return await this.userGateway.addUser(this.input);
   }
 }
