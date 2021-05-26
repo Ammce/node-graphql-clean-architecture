@@ -3,14 +3,23 @@ import gql from "graphql-tag";
 export const userTypes = gql`
   directive @auth(permissions: [String]) on FIELD_DEFINITION | OBJECT
 
+  # type User {
+  #   id: ID!
+  #   name: String @deprecated(reason: "Use \`newField\`.")
+  #   age: Int
+  #     @deprecated(reason: "Use \`newField\`.")
+  #     @auth(permissions: ["amel"])
+  #   products: [Product]
+  #   permissions: [String]!
+  # }
+
   type User {
-    id: ID!
-    name: String @deprecated(reason: "Use \`newField\`.")
-    age: Int
-      @deprecated(reason: "Use \`newField\`.")
-      @auth(permissions: ["amel"])
+    id: ID
+    firstName: String
+    lastName: String
+    email: String!
+    password: String!
     products: [Product]
-    permissions: [String]!
   }
 
   type Query {
@@ -23,7 +32,7 @@ export const userTypes = gql`
   }
 
   input addUserInput {
-    name: String!
-    age: Int!
+    email: String!
+    password: String!
   }
 `;
