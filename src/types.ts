@@ -1,12 +1,5 @@
-import { Request, Response } from 'express';
-import { UserGateway } from './db/gateways';
-
-export interface User {
-  name: string;
-  age: number;
-  email: string;
-}
-
+import { Request, Response } from "express";
+import { UserGateway } from "./db/gateways";
 export interface GQLArgs {
   id: string;
   userId: string;
