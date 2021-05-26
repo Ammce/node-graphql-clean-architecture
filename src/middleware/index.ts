@@ -5,6 +5,7 @@ import { ApolloServer } from "apollo-server-express";
 import mergedTypeDefs from "./typedefs";
 import resolvers from "./resolvers";
 import setupContext from "./context";
+import { AuthDirective } from "../directives/authDirective";
 
 export default (app: Application) => {
   app.use(express.json());
@@ -15,6 +16,9 @@ export default (app: Application) => {
     typeDefs: mergedTypeDefs,
     resolvers,
     context: ({ req, res }) => setupContext(req, res),
+    schemaDirectives: {
+      auth: AuthDirective,
+    },
   });
   server.applyMiddleware({ app: app, path: "/graphql" });
 

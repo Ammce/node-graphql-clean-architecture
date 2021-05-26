@@ -1,14 +1,14 @@
-import { IResolvers } from 'graphql-tools';
-import { GQLArgs, GQLContext } from '../../types';
-import authService from '../../utils/isAuth';
-import { controllers } from './user.controller';
+import { IResolvers } from "graphql-tools";
+import { GQLArgs, GQLContext } from "../../types";
+import authService from "../../utils/isAuth";
+import { controllers } from "./user.controller";
 
 export const resolvers: IResolvers = {
   Query: {
     users: (parent: any, args: GQLArgs, context: GQLContext, info: any) => {
       return [
         {
-          name: 'Amel',
+          name: "Amel",
           age: 25,
         },
       ];

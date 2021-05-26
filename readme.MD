@@ -4,4 +4,8 @@
 
 ### Caching on Get/Post requests
 
+### Rate Limiting
+
 ### Data loaders
+
+### Directives for Authentication
